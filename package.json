@@ -5,7 +5,11 @@
   "description": "A website to manage recipes and help you actually make the recipes you plan",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "toast incremental .",
+    "postinstall": "breadbox --dest public/web_modules",
+    "process-css": "node postcss.js",
+    "tailwind": "tailwindcss build src/css/index.css -o public/index.css"
   },
   "repository": {
     "type": "git",
@@ -17,5 +21,24 @@
   "bugs": {
     "url": "https://github.com/mdarrik/recipe-manager/issues"
   },
-  "homepage": "https://github.com/mdarrik/recipe-manager#readme"
+  "homepage": "https://github.com/mdarrik/recipe-manager#readme",
+  "dependencies": {
+    "@sector/breadbox": "0.0.4",
+    "patch-package": "^6.2.2",
+    "postcss": "^8.1.1",
+    "postcss-functions": "^3.0.0",
+    "tailwindcss": "^2.0.0-alpha.1",
+    "toast": "^0.3.19"
+  },
+  "type": "module",
+  "snowpack": {
+    "exclude": [
+      "postcss.js",
+      "utils/postcss-config-functions.mjs"
+    ],
+    "knownEntrypoints": [
+      "preact",
+      "preact/hooks"
+    ]
+  }
 }
