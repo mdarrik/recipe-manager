@@ -28,6 +28,7 @@
     "patch-package": "^6.2.2",
     "postcss": "^8.1.1",
     "postcss-functions": "^3.0.0",
+    "react-helmet": "^6.1.0",
     "tailwindcss": "^2.0.0-alpha.1",
     "toast": "^0.3.19"
   },
@@ -42,6 +43,11 @@
       "utils/postcss-config-functions.mjs",
       "utils/watch.js"
     ],
+    "installOptions": {
+      "alias": {
+        "react": "preact/compat"
+      }
+    },
     "knownEntrypoints": [
       "preact",
       "preact/hooks"
