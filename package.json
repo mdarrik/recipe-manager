@@ -9,7 +9,8 @@
     "build": "toast incremental .",
     "postinstall": "breadbox --dest public/web_modules",
     "process-css": "node postcss.js",
-    "tailwind": "tailwindcss build src/css/index.css -o public/index.css"
+    "tailwind": "tailwindcss build src/css/index.css -o public/index.css -c tailwind.config.cjs",
+    "serve": "node utils/watch.js"
   },
   "repository": {
     "type": "git",
@@ -30,11 +31,16 @@
     "tailwindcss": "^2.0.0-alpha.1",
     "toast": "^0.3.19"
   },
+  "devDependencies": {
+    "browser-sync": "^2.26.13",
+    "chokidar": "^3.4.3"
+  },
   "type": "module",
   "snowpack": {
     "exclude": [
       "postcss.js",
-      "utils/postcss-config-functions.mjs"
+      "utils/postcss-config-functions.mjs",
+      "utils/watch.js"
     ],
     "knownEntrypoints": [
       "preact",
